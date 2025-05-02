@@ -1,18 +1,18 @@
-version: "3"
+version: '3'
 
 vars:
-  DATABASE_URL: "postgres://postgres:password@localhost:6543/postgres"
-  IMAGE_REPO: astritdemiri11/kubernetes-fullstack-api-app
-  IMAGE_TAG: api-golang
+  DATABASE_URL: 'postgres://postgres:password@localhost:6543/postgres'
+  IMAGE_REPO: ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/api-golang
+  IMAGE_TAG: v1.0.0
 
 tasks:
   install:
-    desc: "download dependencies"
+    desc: 'download dependencies'
     cmds:
       - go mod tidy
 
   run:
-    desc: "download dependencies"
+    desc: 'download dependencies'
     cmds:
       - echo $PWD
       - ls
@@ -21,12 +21,13 @@ tasks:
   build-container-image:
     desc: Build container image
     cmds:
-      - |
-        KO_DOCKER_REPO='{{.IMAGE_REPO}}' \
-          ko build \
-          --bare \
-          --tags={{.IMAGE_TAG}} \
-          --platform=all
+      - docker build -t {{.IMAGE_REPO}}:{{.IMAGE_TAG}} .
+      # - |
+      #   KO_DOCKER_REPO='{{.IMAGE_REPO}}' \
+      #     ko build \
+      #     --bare \
+      #     --tags={{.IMAGE_TAG}} \
+      #     --platform=all
 
   build-container-image-multi-arch:
     cmds:

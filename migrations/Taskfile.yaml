@@ -1,8 +1,8 @@
-version: "3"
+version: '3'
 
 vars:
-  IMAGE_REPO: astritdemiri11/kubernetes-fullstack-api-app
-  IMAGE_TAG: db-migrations
+  IMAGE_REPO: ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/db-migrations
+  IMAGE_TAG: v1.0.0
 
 tasks:
   run-postgres:
@@ -22,7 +22,7 @@ tasks:
   build-container-image:
     desc: Build container image
     cmds:
-      - docker build -t {{.IMAGE_REPO}}{{.IMAGE_TAG}} .
+      - docker build -t {{.IMAGE_REPO}}:{{.IMAGE_TAG}} .
 
   build-container-image-multi-arch:
     desc: Build multi-arch container image

@@ -1,8 +1,8 @@
-version: "3"
+version: '3'
 
 vars:
-  IMAGE_REPO: astritdemiri11/kubernetes-fullstack-api-app
-  IMAGE_TAG: load-generator-python
+  IMAGE_REPO: ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/load-generator-python
+  IMAGE_TAG: v1.0.0
 
 tasks:
   build-container-image:

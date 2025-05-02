@@ -1,15 +1,15 @@
-version: "3"
+version: '3'
 
 vars:
-  DATABASE_URL: "postgres://postgres:password@localhost:6543/postgres"
-  IMAGE_REPO: astritdemiri11/kubernetes-fullstack-api-app
-  IMAGE_TAG: api-node
+  DATABASE_URL: 'postgres://postgres:password@localhost:6543/postgres'
+  IMAGE_REPO: ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/api-node
+  IMAGE_TAG: v1.0.0
 
 tasks:
   build-container-image:
     desc: Build container image
     cmds:
-      - docker build -t {{.IMAGE_REPO}}{{.IMAGE_TAG}} .
+      - docker build -t {{.IMAGE_REPO}}:{{.IMAGE_TAG}} .
 
   build-container-image-multi-arch:
     desc: Build multi-arch container image
