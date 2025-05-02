@@ -1,0 +1,6 @@
+docker_build(
+  'astritdemiri11/kubernetes-fullstack-api-app', 
+  './',
+)
+k8s_yaml('./Deployment.yaml')
+k8s_resource('api-node', port_forwards=3000)

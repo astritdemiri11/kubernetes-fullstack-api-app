@@ -1,0 +1,8 @@
+{
+  "name": "kubernetes-fullstack-api-app",
+  "version": "1.0.0",
+  "description": "Deploying a fullstack application with Node.js, Go, Python, React, and Kubernetes",
+  "keywords": ["nodejs", "go", "python", "react", "kubernetes"],
+  "author": "Astrit Demiri",
+  "license": "ISC"
+}
