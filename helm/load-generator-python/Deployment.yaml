@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load-generator-python
+  namespace: kubernetes-fullstack-api-app
+  labels:
+    app: load-generator-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: load-generator-python
+  template:
+    metadata:
+      labels:
+        app: load-generator-python
+    spec:
+      containers:
+        - name: load-generator
+          image: ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/load-generator-python:v1.0.0
+          # imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: load-generator-config
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "200m"
+            requests:
+              memory: "50Mi"
+              cpu: "100m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+      # imagePullSecrets:
+      #   - name: dockerconfigjson
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
