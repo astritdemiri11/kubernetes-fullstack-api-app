@@ -2,5 +2,10 @@ docker_build(
   'ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/api-golang:v1.0.0',
   './'
 )
+
+k8s_yaml('../../helm/api-golang/Secret.yaml')
 k8s_yaml('../../helm/api-golang/Deployment.yaml')
+k8s_yaml('../../helm/api-golang/Service.yaml')
+k8s_yaml('../../helm/api-golang/IngressRoute.yaml')
+
 k8s_resource('api-golang', port_forwards=8000)

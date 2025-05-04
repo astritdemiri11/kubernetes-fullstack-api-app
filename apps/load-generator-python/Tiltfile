@@ -2,4 +2,5 @@ docker_build(
   'ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/load-generator-python:v1.0.0', 
   './',
 )
+k8s_yaml('../../helm/load-generator-python/ConfigMap.yaml')
 k8s_yaml('../../helm/load-generator-python/Deployment.yaml')

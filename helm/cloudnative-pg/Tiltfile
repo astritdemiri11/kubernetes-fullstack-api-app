@@ -1,0 +1,2 @@
+k8s_yaml('./Secret.yaml')
+k8s_yaml('./Cluster.yaml')

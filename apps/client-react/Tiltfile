@@ -2,5 +2,10 @@ docker_build(
   'ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/client-react:v1.0.0', 
   './',
 )
+
+k8s_yaml('../../helm/client-react/ConfigMap.yaml')
 k8s_yaml('../../helm/client-react/Deployment.yaml')
+k8s_yaml('../../helm/client-react/Service.yaml')
+k8s_yaml('../../helm/client-react/IngressRoute.yaml')
+
 k8s_resource('client-react-nginx', port_forwards=8080)
