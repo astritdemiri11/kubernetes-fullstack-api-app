@@ -32,3 +32,8 @@ tasks:
     desc: Run a local registry
     cmds:
       - docker run -d -p 5000:5000 registry:2.8
+      
+  tilt-up:
+    desc: "Start the applications using the top level tilt file"
+    cmds:
+      - tilt up

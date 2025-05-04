@@ -1,0 +1,4 @@
+include('./apps/api-golang/Tiltfile')
+include('./apps/api-node/Tiltfile')
+include('./apps/client-react/Tiltfile')
+include('./apps/load-generator-python/Tiltfile')

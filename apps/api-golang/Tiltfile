@@ -1,8 +1,6 @@
-load('ext://ko', 'ko_build')
-ko_build(
-  'astritdemiri11/kubernetes-fullstack-api-app',
-  './',
-  deps=['.']
+docker_build(
+  'ghcr.io/astritdemiri11/kubernetes-fullstack-api-app/api-golang:v1.0.0',
+  './'
 )
-k8s_yaml('./Deployment.yaml')
+k8s_yaml('../../helm/api-golang/Deployment.yaml')
 k8s_resource('api-golang', port_forwards=8000)
