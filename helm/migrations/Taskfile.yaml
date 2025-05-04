@@ -5,21 +5,8 @@ vars:
   IMAGE_TAG: v1.0.0
 
 tasks:
-  install-postgres:
-    desc: "Deploy PostgreSQL using Helm"
-    cmds:
-      - helm repo add bitnami https://charts.bitnami.com/bitnami
-      - |
-        helm upgrade --install \
-          -n postgres \
-          postgres bitnami/postgresql \
-          --set auth.postgresPassword=password \
-          --version 15.3.2 \
-          --values values.yaml \
-          --create-namespace
-
   apply-initial-db-migration-job:
     desc: "Run init.sql script against the DB"
     cmds:
-      - "kubectl apply -f Secret.db-connection.yaml"
-      - "kubectl apply -f Job.db-migrator.yaml"
+      - "kubectl apply -f Secret.yaml"
+      - "kubectl apply -f Job.yaml"

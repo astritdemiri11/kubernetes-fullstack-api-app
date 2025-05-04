@@ -1,0 +1,28 @@
+version: 3
+
+env:
+  BORDER: double
+  BORDER_FOREGROUND: "212"
+  PADDING: "1 1"
+  MARGIN: "1 1"
+  NAMESPACE: 09--cnpg
+
+tasks:
+
+  install-cnpg-operator:
+    desc: "Install cloudnative-pg operator"
+    cmds:
+      - "helm repo add cnpg https://cloudnative-pg.github.io/charts"
+      - |
+        helm upgrade --install cnpg \
+          --namespace cnpg-system \
+          --create-namespace \
+          cnpg/cloudnative-pg
+
+  apply-cluster:
+    desc: "Apply minimal cnpg cluster definition"
+    cmds:
+      - kubectl apply -f Secret.yaml
+      - kubectl apply -f Cluster.yaml
+      - kubectl apply -f ScheduleBackup.yaml
+      - kubectl apply -f Backup.yaml

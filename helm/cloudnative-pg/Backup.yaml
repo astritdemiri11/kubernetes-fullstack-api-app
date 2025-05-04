@@ -1,0 +1,9 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Backup
+metadata:
+  name: cnpg-backup-kubernetes-fullstack-api-app
+  namespace: kubernetes-fullstack-api-app
+spec:
+  method: barmanObjectStore
+  cluster:
+    name: cnpg-kubernetes-fullstack-api-app

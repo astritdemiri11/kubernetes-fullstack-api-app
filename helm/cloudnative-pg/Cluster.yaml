@@ -1,0 +1,16 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cnpg-kubernetes-fullstack-api-app
+  namespace: kubernetes-fullstack-api-app
+spec:
+  instances: 2
+  storage:
+    size: 1Gi
+  enableSuperuserAccess: true
+  bootstrap:
+    initdb:
+      database: cnpg-db
+      owner: postgres
+      secret:
+        name: cnpg-postgres-secret
